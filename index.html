@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="color-scheme" content="dark">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shaik Jeenath | Software & AI Developer</title>
+<meta name="description" content="Portfolio of Shaik Jeenath — B.Tech CSE (AI) graduate building software with Python, Java, Django and Deep Learning.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0b1020; --bg2:#10172b; --card:#141c33; --line:#232d4a;
+  --text:#e7ebf5; --muted:#9aa5c0; --accent:#6c8cff; --accent2:#3fd0c9;
+  --grad:linear-gradient(135deg,#6c8cff 0%,#3fd0c9 100%);
+  --shadow:0 10px 30px rgba(0,0,0,.35);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.65;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+section{padding:90px 0}
+section:nth-of-type(even){background:var(--bg2)}
+.eyebrow{font-family:"JetBrains Mono",monospace;font-size:.85rem;color:var(--accent2);letter-spacing:.08em;text-transform:uppercase}
+h2{font-size:clamp(1.8rem,3.5vw,2.4rem);font-weight:800;margin:6px 0 40px}
+h2 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:50;background:color-mix(in srgb,var(--bg) 82%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px}
+.logo{font-weight:800;font-size:1.25rem}
+.logo b{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.links{display:flex;gap:26px;list-style:none}
+.links a{color:var(--muted);font-weight:500;font-size:.95rem;transition:color .2s}
+.links a:hover,.links a.active{color:var(--text)}
+.burger{display:none;background:none;border:0;color:var(--text);font-size:1.6rem;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding-top:64px;position:relative;background:var(--bg)!important}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(600px 400px at 80% 20%,rgba(108,140,255,.18),transparent 70%),radial-gradient(500px 400px at 10% 80%,rgba(63,208,201,.12),transparent 70%);pointer-events:none}
+.hero .wrap{display:grid;grid-template-columns:1.4fr 1fr;gap:50px;align-items:center;position:relative}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1.1;font-weight:800;margin:10px 0 14px}
+.hero h1 span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.role{font-size:clamp(1.1rem,2.2vw,1.4rem);color:var(--muted);font-weight:500;min-height:2em}
+.role .typed{color:var(--text);border-right:2px solid var(--accent2);padding-right:4px}
+.hero p.lead{color:var(--muted);max-width:560px;margin:18px 0 30px}
+.btns{display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;font-weight:600;transition:transform .2s,box-shadow .2s}
+.btn.primary{background:var(--grad);color:#fff;box-shadow:0 8px 24px rgba(108,140,255,.35)}
+.btn.ghost{border:1px solid var(--line);background:var(--card)}
+.btn:hover{transform:translateY(-2px)}
+.socials{display:flex;gap:12px;margin-top:30px}
+.socials a{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);background:var(--card);transition:all .2s}
+.socials a:hover{border-color:var(--accent);transform:translateY(-3px)}
+.socials svg{width:19px;height:19px;fill:var(--text)}
+.avatar{justify-self:center;width:min(320px,70vw);aspect-ratio:1;border-radius:50%;padding:6px;background:var(--grad);box-shadow:var(--shadow);animation:float 6s ease-in-out infinite}
+.avatar div{width:100%;height:100%;border-radius:50%;background:var(--card);display:grid;place-items:center;font-size:clamp(4rem,10vw,6.5rem);font-weight:800}
+.avatar div span{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 50%;display:block;background:radial-gradient(circle at 70% 25%,color-mix(in srgb,var(--accent) 18%,var(--bg)),var(--bg) 70%)}
+@keyframes float{50%{transform:translateY(-12px)}}
+
+/* ABOUT */
+.about{display:grid;grid-template-columns:1.5fr 1fr;gap:40px}
+.about p{color:var(--muted);margin-bottom:14px}
+.about p strong{color:var(--text)}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;text-align:center}
+.stat b{display:block;font-size:2rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.stat small{color:var(--muted);font-size:.85rem}
+
+/* CARDS */
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px;transition:transform .25s,border-color .25s,box-shadow .25s}
+.card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--accent) 60%,var(--line));box-shadow:var(--shadow)}
+
+/* SKILLS */
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.skills h3{font-size:1.05rem;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.ico{width:36px;height:36px;border-radius:10px;display:grid;place-items:center;background:color-mix(in srgb,var(--accent) 16%,transparent);font-size:1.1rem}
+.tags{display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:.82rem;padding:5px 12px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:var(--text)}
+section:nth-of-type(even) .tag{background:var(--bg)}
+
+/* PROJECTS */
+.projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:22px}
+.project{display:flex;flex-direction:column}
+.project .top{height:6px;border-radius:6px;background:var(--grad);margin:-8px 0 20px;width:60px}
+.project .kind{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--accent2);text-transform:uppercase;letter-spacing:.06em}
+.project h3{font-size:1.2rem;margin:6px 0 12px;line-height:1.35}
+.project ul{padding-left:18px;color:var(--muted);font-size:.93rem;margin-bottom:18px;flex:1}
+.project li{margin-bottom:6px}
+.project .tags{margin-bottom:18px}
+.project .more{color:var(--accent);font-weight:600;font-size:.92rem}
+.project .more:hover{text-decoration:underline}
+
+/* TIMELINE */
+.timeline{position:relative;padding-left:30px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl{position:relative;margin-bottom:26px}
+.tl::before{content:"";position:absolute;left:-28px;top:26px;width:14px;height:14px;border-radius:50%;background:var(--grad);box-shadow:0 0 0 4px var(--bg2)}
+.tl .head{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-bottom:4px}
+.tl h3{font-size:1.15rem}
+.date{font-family:"JetBrains Mono",monospace;font-size:.8rem;color:var(--accent2);background:color-mix(in srgb,var(--accent2) 12%,transparent);padding:3px 10px;border-radius:999px;height:fit-content}
+.tl .org{color:var(--accent);font-weight:600;margin-bottom:10px}
+.tl ul{padding-left:18px;color:var(--muted);font-size:.94rem}
+.tl li{margin-bottom:5px}
+
+/* EDUCATION */
+.edu{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px}
+.edu .score{font-size:1.8rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;margin-top:10px}
+.edu h3{font-size:1.1rem;margin:8px 0 4px}
+.edu p{color:var(--muted);font-size:.93rem}
+
+/* CERTS */
+.certs{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+.cert{display:flex;gap:14px;align-items:flex-start;padding:20px;position:relative}
+.cert h4{font-size:1rem;margin-bottom:2px}
+.cert p{color:var(--muted);font-size:.87rem}
+.cert[data-img]{cursor:zoom-in}
+.cert .view{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-size:.78rem;font-weight:600;color:var(--accent2);opacity:.85;transition:opacity .25s}
+.cert:hover .view{opacity:1}
+.cert:hover{z-index:5}
+/* hover preview */
+.cert .peek{position:absolute;left:50%;bottom:calc(100% + 14px);width:min(340px,86vw);padding:8px;border-radius:14px;background:var(--card);border:1px solid color-mix(in srgb,var(--accent) 50%,var(--line));box-shadow:0 24px 60px rgba(0,0,0,.55);
+  opacity:0;visibility:hidden;pointer-events:none;transform:translate(-50%,16px) scale(.92);transform-origin:50% 100%;
+  transition:opacity .35s ease,transform .45s cubic-bezier(.2,.9,.25,1.15),visibility .35s}
+.cert .peek::after{content:"";position:absolute;left:50%;top:100%;transform:translateX(-50%);border:9px solid transparent;border-top-color:color-mix(in srgb,var(--accent) 50%,var(--line))}
+.cert .peek img{display:block;width:100%;height:auto;max-height:300px;object-fit:contain;border-radius:9px;background:#fff}
+.cert:hover .peek,.cert:focus-visible .peek{opacity:1;visibility:visible;transform:translate(-50%,0) scale(1)}
+.cert.below .peek{bottom:auto;top:calc(100% + 14px);transform-origin:50% 0;transform:translate(-50%,-16px) scale(.92)}
+.cert.below .peek::after{top:auto;bottom:100%;border-top-color:transparent;border-bottom-color:color-mix(in srgb,var(--accent) 50%,var(--line))}
+.cert.below:hover .peek{transform:translate(-50%,0) scale(1)}
+@media (hover:none){.cert .peek{display:none}}
+/* lightbox */
+.lightbox{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:20px;background:rgba(5,8,18,.82);backdrop-filter:blur(6px);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox figure{max-width:min(1000px,100%);transform:scale(.9) translateY(20px);transition:transform .4s cubic-bezier(.2,.9,.25,1.1)}
+.lightbox.open figure{transform:none}
+.lightbox img{display:block;max-width:100%;max-height:80vh;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,.6);background:#fff}
+.lightbox figcaption{text-align:center;color:var(--text);margin-top:12px;font-weight:600}
+.lightbox .close{position:absolute;top:16px;right:20px;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:var(--card);color:var(--text);font-size:1.4rem;cursor:pointer}
+.sub{margin:50px 0 20px;font-size:1.25rem}
+
+/* CONTACT */
+.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:40px}
+.contact .info p{color:var(--muted);margin-bottom:24px}
+.ci{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding:14px 18px;background:var(--card);border:1px solid var(--line);border-radius:12px;transition:border-color .2s;word-break:break-word}
+.ci:hover{border-color:var(--accent)}
+.ci small{display:block;color:var(--muted);font-size:.78rem}
+form{display:grid;gap:14px}
+input,textarea{width:100%;padding:14px 16px;border-radius:10px;border:1px solid var(--line);background:var(--card);color:var(--text);font:inherit;outline:none;transition:border-color .2s}
+input:focus,textarea:focus{border-color:var(--accent)}
+textarea{min-height:140px;resize:vertical}
+form .btn{justify-content:center;border:0;cursor:pointer;font:inherit;font-weight:600}
+
+footer{border-top:1px solid var(--line);padding:28px 0;text-align:center;color:var(--muted);font-size:.9rem}
+.totop{position:fixed;right:20px;bottom:20px;width:44px;height:44px;border-radius:50%;background:var(--grad);color:#fff;display:grid;place-items:center;font-size:1.2rem;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:var(--shadow)}
+.totop.show{opacity:1;pointer-events:auto}
+
+/* reveal animation */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* RESPONSIVE */
+@media (max-width:860px){
+  .hero .wrap,.about,.contact{grid-template-columns:1fr}
+  .avatar{order:-1;width:200px}
+  .hero{text-align:left}
+  .burger{display:block}
+  .links{position:absolute;top:64px;left:0;right:0;flex-direction:column;gap:0;background:var(--bg);border-bottom:1px solid var(--line);max-height:0;overflow:hidden;transition:max-height .3s}
+  .links.open{max-height:420px}
+  .links a{display:block;padding:14px 20px}
+  section{padding:70px 0}
+}
+@media (max-width:420px){.projects{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <a href="#home" class="logo">Jeenath<b>.</b></a>
+    <button class="burger" aria-label="Menu" onclick="document.querySelector('.links').classList.toggle('open')">&#9776;</button>
+    <ul class="links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Hello, I'm</div>
+      <h1>Shaik <span>Jeenath</span></h1>
+      <div class="role">Aspiring <span class="typed" id="typed">Software Developer</span></div>
+      <p class="lead">B.Tech Computer Science &amp; Engineering (AI) graduate who builds useful software — from Django web apps and Java applications to explainable deep-learning models for healthcare.</p>
+      <div class="btns">
+        <a href="#projects" class="btn primary">View My Work &rarr;</a>
+        <a href="Shaik_Jeenath_Resume.pdf" class="btn ghost" download>&#8595; Download Resume</a>
+      </div>
+      <div class="socials">
+        <a href="https://github.com/Jeenath3147" target="_blank" rel="noopener" aria-label="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .5a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-6 0-1.2.5-2.3 1.3-3.1-.2-.4-.6-1.6.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17.3 4.7 18.3 5 18.3 5c.7 1.6.2 2.9.1 3.2.8.8 1.3 1.9 1.3 3.1 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .5z"/></svg></a>
+        <a href="https://linkedin.com/in/jeenath-shaik-b0987b293" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.4 20.5h-3.6v-5.6c0-1.3 0-3-1.8-3s-2.1 1.4-2.1 2.9v5.7H9.3V9h3.4v1.6c.5-.9 1.6-1.8 3.4-1.8 3.6 0 4.3 2.4 4.3 5.5v6.2zM5.3 7.4a2.1 2.1 0 1 1 0-4.2 2.1 2.1 0 0 1 0 4.2zM7.1 20.5H3.5V9h3.6v11.5zM22.2 0H1.8C.8 0 0 .8 0 1.7v20.6c0 .9.8 1.7 1.8 1.7h20.4c1 0 1.8-.8 1.8-1.7V1.7C24 .8 23.2 0 22.2 0z"/></svg></a>
+        <a href="mailto:jeenathshaik115@gmail.com" aria-label="Email"><svg viewBox="0 0 24 24"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+      </div>
+    </div>
+    <div class="avatar"><img src="profile.png" alt="Photo of Shaik Jeenath"></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="wrap">
+    <div class="eyebrow">Get to know me</div>
+    <h2>About <span>Me</span></h2>
+    <div class="about">
+      <div class="reveal">
+        <p>I'm a <strong>Computer Science &amp; Engineering (AI)</strong> graduate from SVR Engineering College, Nandyal, with hands-on experience in <strong>Python, Java, Django, Machine Learning and Deep Learning</strong>.</p>
+        <p>My main project is an <strong>interpretable AI system for classifying noise in ECG heart signals</strong>, built with CNN/LSTM models and Explainable AI so doctors can see <em>why</em> the model made each decision. I've also built a Django-based online quiz platform and a Java + MySQL expense tracker.</p>
+        <p>I've completed two internships in <strong>AI</strong> and <strong>Data Science</strong>, and I have strong foundations in Data Structures, OOP and DBMS. I'm now looking for <strong>Software Development or AI-focused roles</strong> where I can learn fast and ship real work.</p>
+      </div>
+      <div class="stats reveal">
+        <div class="stat"><b>2</b><small>Internships</small></div>
+        <div class="stat"><b>3+</b><small>Major Projects</small></div>
+        <div class="stat"><b>10+</b><small>Certifications</small></div>
+        <div class="stat"><b>82%</b><small>B.Tech Score</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="wrap">
+    <div class="eyebrow">What I work with</div>
+    <h2>Technical <span>Skills</span></h2>
+    <div class="skills">
+      <div class="card reveal"><h3><span class="ico">&lt;/&gt;</span>Programming</h3><div class="tags"><span class="tag">Python</span><span class="tag">Java</span><span class="tag">C</span><span class="tag">SQL</span></div></div>
+      <div class="card reveal"><h3><span class="ico">&#127760;</span>Web Development</h3><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Django</span></div></div>
+      <div class="card reveal"><h3><span class="ico">&#129302;</span>AI &amp; Data Science</h3><div class="tags"><span class="tag">TensorFlow</span><span class="tag">Keras</span><span class="tag">Scikit-learn</span><span class="tag">NumPy</span><span class="tag">Pandas</span><span class="tag">Matplotlib</span><span class="tag">CNN / LSTM</span><span class="tag">Explainable AI</span></div></div>
+      <div class="card reveal"><h3><span class="ico">&#128421;</span>Databases</h3><div class="tags"><span class="tag">JDBC</span><span class="tag">MySQL</span><span class="tag">SQLite</span></div></div>
+      <div class="card reveal"><h3><span class="ico">&#128218;</span>Core Concepts</h3><div class="tags"><span class="tag">Data Structures</span><span class="tag">OOP</span><span class="tag">DBMS</span></div></div>
+      <div class="card reveal"><h3><span class="ico">&#128295;</span>Tools</h3><div class="tags"><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span><span class="tag">Jupyter</span><span class="tag">Figma</span><span class="tag">Canva</span></div></div>
+      <div class="card reveal"><h3><span class="ico">&#129309;</span>Soft Skills</h3><div class="tags"><span class="tag">Problem Solving</span><span class="tag">Communication</span><span class="tag">Teamwork</span><span class="tag">Adaptability</span></div></div>
+      <div class="card reveal"><h3><span class="ico">&#128483;</span>Languages</h3><div class="tags"><span class="tag">English</span><span class="tag">Hindi</span><span class="tag">Telugu</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="wrap">
+    <div class="eyebrow">Things I've built</div>
+    <h2>Featured <span>Projects</span></h2>
+    <div class="projects">
+      <article class="card project reveal">
+        <div class="top"></div>
+        <span class="kind">Deep Learning · Healthcare</span>
+        <h3>Interpretable AI for Healthcare: ECG Noise Classification</h3>
+        <ul>
+          <li>Deep learning system (CNN/LSTM) that classifies noise in long-term ECG signals.</li>
+          <li>Full pipeline: filtering, normalization, segmentation, feature extraction and multi-class noise detection.</li>
+          <li>Explainable AI with Grad-CAM &amp; Saliency Maps shows why each prediction was made.</li>
+          <li>Evaluated with Accuracy, Precision, Recall and F1-Score for reliable signal-quality checks.</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow/Keras</span><span class="tag">NumPy</span><span class="tag">SciPy</span><span class="tag">SQLite</span><span class="tag">XAI</span></div>
+        
+      </article>
+      <article class="card project reveal">
+        <div class="top"></div>
+        <span class="kind">Web Application</span>
+        <h3>Online Quiz System</h3>
+        <ul>
+          <li>Web-based quiz platform with secure user login and session handling.</li>
+          <li>Automatic quiz evaluation and scoring for instant feedback.</li>
+          <li>Admin dashboard to manage users, quizzes and questions easily.</li>
+        </ul>
+        <div class="tags"><span class="tag">Python</span><span class="tag">Django</span><span class="tag">SQLite</span><span class="tag">HTML</span><span class="tag">CSS</span></div>
+        <a class="more" href="https://github.com/Jeenath3147/Online-quiz-system" target="_blank" rel="noopener">View Code on GitHub &rarr;</a>
+      </article>
+      <article class="card project reveal">
+        <div class="top"></div>
+        <span class="kind">Java · Console Application</span>
+        <h3>Smart Expense Tracker</h3>
+        <ul>
+          <li>Menu-driven Java app to add, view, update and delete daily expenses across 8 categories.</li>
+          <li>Layered design: Expense model, a repository interface with a MySQL (JDBC) implementation, and an ExpenseManager for business logic.</li>
+          <li>Monthly and category-wise spending summaries, plus filtering by category.</li>
+          <li>Input validation with a custom exception, secure PreparedStatement queries, and 6 automated tests.</li>
+        </ul>
+        <div class="tags"><span class="tag">Java</span><span class="tag">MySQL</span><span class="tag">JDBC</span><span class="tag">OOP</span><span class="tag">Exception Handling</span></div>
+        <a class="more" href="https://github.com/Jeenath3147/smart-expense-tracker" target="_blank" rel="noopener">View Code on GitHub &rarr;</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="wrap">
+    <div class="eyebrow">Where I've worked</div>
+    <h2>Internship <span>Experience</span></h2>
+    <div class="timeline">
+      <div class="tl reveal"><div class="card">
+        <div class="head"><h3>AI Intern</h3><span class="date">Dec 2025 – Mar 2026</span></div>
+        <div class="org">RESHAPP Software Solutions Pvt Ltd</div>
+        <ul>
+          <li>Built ML and deep learning models (Scikit-learn, TensorFlow, Keras) for classification, regression and prediction tasks.</li>
+          <li>Worked on real-world AI applications in NLP, computer vision and automation using NumPy and Pandas.</li>
+          <li>Followed structured workflows for preprocessing, feature engineering, validation and deployment, with ethical-AI documentation.</li>
+        </ul>
+      </div></div>
+      <div class="tl reveal"><div class="card">
+        <div class="head"><h3>Data Science Intern</h3><span class="date">May 2025 – Jul 2025</span></div>
+        <div class="org">Skilldzire</div>
+        <ul>
+          <li>Performed data cleaning, visualization and exploratory analysis with NumPy, Pandas, Matplotlib and Seaborn.</li>
+          <li>Applied Linear Regression, Decision Tree, Random Forest and SVM using Scikit-learn.</li>
+          <li>Completed three end-to-end projects: Car Price Prediction, Fashion MNIST Classification and Hotel Booking Classification.</li>
+        </ul>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <div class="wrap">
+    <div class="eyebrow">My academic journey</div>
+    <h2><span>Education</span></h2>
+    <div class="edu">
+      <div class="card reveal"><span class="date">2022 – 2026</span><h3>B.Tech — CSE (Artificial Intelligence)</h3><p>SVR Engineering College, Nandyal</p><div class="score">82%</div></div>
+      <div class="card reveal"><span class="date">2020 – 2022</span><h3>Intermediate</h3><p>A.P Model School &amp; College, Gospadu</p><div class="score">90%</div></div>
+      <div class="card reveal"><span class="date">2020</span><h3>SSC (Class 10)</h3><p>A.P Model School, Gospadu</p><div class="score">98%</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="wrap">
+    <div class="eyebrow">Always learning</div>
+    <h2>Certifications &amp; <span>Achievements</span></h2>
+    <div class="certs">
+      <div class="card cert reveal" tabindex="0" data-img="certs/quantum-fundamentals.jpg" data-title="Quantum Fundamentals"><span class="ico">&#127942;</span><div><h4>Quantum Fundamentals</h4><p>Amaravati Quantum Valley, Qubitech &amp; WISER · Feb 2026</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/quantum-fundamentals.jpg" alt="Quantum Fundamentals certificate" loading="lazy"></div></div>
+      <div class="card cert reveal" tabindex="0" data-img="certs/eduskills-aiml.jpg" data-title="AI &amp; ML Virtual Internship"><span class="ico">&#127942;</span><div><h4>AI &amp; ML Virtual Internship</h4><p>Eduskills · AWS Academy · Apr – Jun 2025</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/eduskills-aiml.jpg" alt="AI &amp; ML Virtual Internship certificate" loading="lazy"></div></div>
+      <div class="card cert reveal" tabindex="0" data-img="certs/skilldzire-data-science.jpg" data-title="Data Science Internship"><span class="ico">&#127942;</span><div><h4>Data Science Internship</h4><p>Skilldzire · May – Jul 2025</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/skilldzire-data-science.jpg" alt="Data Science Internship certificate" loading="lazy"></div></div>
+      <div class="card cert reveal" tabindex="0" data-img="certs/reshapp-ai-internship.jpg" data-title="AI Internship Certificate"><span class="ico">&#127942;</span><div><h4>AI Internship Certificate</h4><p>RESHAPP Software Solutions · Dec 2025 – Mar 2026</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/reshapp-ai-internship.jpg" alt="AI Internship Certificate certificate" loading="lazy"></div></div>
+      <div class="card cert reveal" tabindex="0" data-img="certs/google-genai-study-jams.jpg" data-title="Google Gen AI Study Jams 2024"><span class="ico">&#127942;</span><div><h4>Google Gen AI Study Jams 2024</h4><p>Google Developer Student Clubs · May 2024</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/google-genai-study-jams.jpg" alt="Google Gen AI Study Jams 2024 certificate" loading="lazy"></div></div>
+      <div class="card cert reveal" tabindex="0" data-img="certs/gdsc-build-with-ai.jpg" data-title="Build with AI"><span class="ico">&#127942;</span><div><h4>Build with AI</h4><p>Google Developer Student Clubs &amp; NEXUS Swarm · May 2024</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/gdsc-build-with-ai.jpg" alt="Build with AI certificate" loading="lazy"></div></div>
+      <div class="card cert reveal" tabindex="0" data-img="certs/codsoft-python.jpg" data-title="Python Programming Internship"><span class="ico">&#127942;</span><div><h4>Python Programming Internship</h4><p>CodSoft · Mar – Apr 2024</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/codsoft-python.jpg" alt="Python Programming Internship certificate" loading="lazy"></div></div>
+      <div class="card cert reveal" tabindex="0" data-img="certs/interncall-frontend.jpg" data-title="Front-End Bootcamp"><span class="ico">&#127942;</span><div><h4>Front-End Bootcamp</h4><p>InternCall · Mar 2024</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/interncall-frontend.jpg" alt="Front-End Bootcamp certificate" loading="lazy"></div></div>
+      <div class="card cert reveal" tabindex="0" data-img="certs/vois-threats-to-websites.jpg" data-title="Threats to Websites"><span class="ico">&#127942;</span><div><h4>Threats to Websites</h4><p>Vodafone Idea Foundation (_VOIS) · Mar 2024</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/vois-threats-to-websites.jpg" alt="Threats to Websites certificate" loading="lazy"></div></div>
+      <div class="card cert reveal" tabindex="0" data-img="certs/google-cloud-genai.jpg" data-title="Google Cloud Computing Foundations &amp; Generative AI"><span class="ico">&#127942;</span><div><h4>Google Cloud Computing Foundations &amp; Generative AI</h4><p>Google Developer Student Clubs · Nov 2023</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/google-cloud-genai.jpg" alt="Google Cloud Computing Foundations &amp; Generative AI certificate" loading="lazy"></div></div>
+      <div class="card cert reveal"><span class="ico">&#127942;</span><div><h4>Generative AI</h4><p>NASSCOM</p></div></div>
+      <div class="card cert reveal"><span class="ico">&#127942;</span><div><h4>Automation Explorer</h4><p>UiPath</p></div></div>
+    </div>
+    <h3 class="sub">Other Achievements</h3>
+    <div class="certs">
+      <div class="card cert reveal" tabindex="0" data-img="certs/edgroom.jpg" data-title="EdGroom Certificate of Appreciation"><span class="ico">&#127941;</span><div><h4>EdGroom Certificate of Appreciation</h4><p>&ldquo;A Message to the Teacher&rdquo; contest · Sep 2024</p><span class="view">&#128065; Hover to view · click to enlarge</span></div><div class="peek"><img src="certs/edgroom.jpg" alt="EdGroom Certificate of Appreciation certificate" loading="lazy"></div></div>
+      <div class="card cert reveal"><span class="ico">&#127793;</span><div><h4>Soil Protection Project</h4><p>Participant — community service initiative</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Let's talk</div>
+    <h2>Get In <span>Touch</span></h2>
+    <div class="contact">
+      <div class="info reveal">
+        <p>I'm open to full-time Software Development and AI roles. Whether you have an opportunity or just want to connect, my inbox is always open.</p>
+        <a class="ci" href="mailto:jeenathshaik115@gmail.com"><span class="ico">&#9993;</span><div><small>Email</small>jeenathshaik115@gmail.com</div></a>
+        <a class="ci" href="https://linkedin.com/in/jeenath-shaik-b0987b293" target="_blank" rel="noopener"><span class="ico">in</span><div><small>LinkedIn</small>jeenath-shaik</div></a>
+        <a class="ci" href="https://github.com/Jeenath3147" target="_blank" rel="noopener"><span class="ico">&lt;/&gt;</span><div><small>GitHub</small>Jeenath3147</div></a>
+        <div class="ci"><span class="ico">&#128205;</span><div><small>Location</small>Nandyal, Andhra Pradesh, India</div></div>
+      </div>
+      <form class="reveal" onsubmit="sendMail(event)">
+        <input id="fname" placeholder="Your name" required>
+        <input id="femail" type="email" placeholder="Your email" required>
+        <input id="fsubj" placeholder="Subject">
+        <textarea id="fmsg" placeholder="Your message" required></textarea>
+        <button class="btn primary" type="submit">Send Message &rarr;</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>© <span id="yr">2026</span> Shaik Jeenath · Built with HTML, CSS &amp; JavaScript</footer>
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true"><button class="close" aria-label="Close">&times;</button><figure><img alt=""><figcaption></figcaption></figure></div>
+<a href="#home" class="totop" aria-label="Back to top">&uarr;</a>
+
+<script>
+// Typing effect for roles
+const roles=["Software Developer","AI / ML Engineer","Python & Django Developer","Java Developer"];
+let r=0,c=roles[0].length,del=true;const el=document.getElementById("typed");
+setTimeout(function tick(){
+  const w=roles[r];
+  c+=del?-1:1; el.textContent=w.slice(0,c);
+  let d=del?45:90;
+  if(!del&&c===w.length){del=true;d=1800}
+  else if(del&&c===0){del=false;r=(r+1)%roles.length;d=300}
+  setTimeout(tick,d);
+},1800);
+
+// Reveal on scroll
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".reveal").forEach(x=>io.observe(x));
+
+// Active nav link + back-to-top
+const links=[...document.querySelectorAll(".links a")];
+window.addEventListener("scroll",()=>{
+  document.querySelector(".totop").classList.toggle("show",scrollY>500);
+  let cur="";document.querySelectorAll("section[id]").forEach(s=>{if(scrollY>=s.offsetTop-120)cur=s.id});
+  links.forEach(a=>a.classList.toggle("active",a.getAttribute("href")==="#"+cur));
+});
+links.forEach(a=>a.addEventListener("click",()=>document.querySelector(".links").classList.remove("open")));
+
+// Contact form -> opens the visitor's email app
+function sendMail(e){
+  e.preventDefault();
+  const n=fname.value,m=femail.value,s=fsubj.value||"Hello from your portfolio",b=fmsg.value;
+  location.href="mailto:jeenathshaik115@gmail.com?subject="+encodeURIComponent(s)+"&body="+encodeURIComponent(b+"\n\n— "+n+" ("+m+")");
+}
+
+// Certificate preview: flip below when near top of screen, click to enlarge
+const lb=document.getElementById("lightbox"),lbImg=lb.querySelector("img"),lbCap=lb.querySelector("figcaption");
+document.querySelectorAll(".cert[data-img]").forEach(c=>{
+  c.addEventListener("mouseenter",()=>c.classList.toggle("below",c.getBoundingClientRect().top<380));
+  const open=()=>{lbImg.src=c.dataset.img;lbImg.alt=c.dataset.title;lbCap.innerHTML=c.dataset.title;lb.classList.add("open")};
+  c.addEventListener("click",open);
+  c.addEventListener("keydown",e=>{if(e.key==="Enter")open()});
+});
+lb.addEventListener("click",e=>{if(e.target!==lbImg)lb.classList.remove("open")});
+document.addEventListener("keydown",e=>{if(e.key==="Escape")lb.classList.remove("open")});
+document.getElementById("yr").textContent=new Date().getFullYear();
+</script>
+</body>
+</html>
